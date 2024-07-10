@@ -1,26 +1,49 @@
-//your JS code here. If required.
-let checkbox=document.getElementById('checkbox');
-let username=document.getElementById('username');
-let password=document.getElementById('password');
-document.getElementById('submit').addEventListener('click',(e)=>{
-    e.preventDefault();
-    if(checkbox.checked==true){
-        localStorage.setItem("username",username.value);
-        localStorage.setItem("password",password.value);
-        alert("Logged in as " + username.value);
-    }
-    else{
-        localStorage.removeItem('username');
-        localStorage.removeItem('password');
-    }
-});
-
-if (localStorage.getItem('username') && localStorage.getItem('password')) {
-    document.getElementById('existing').style.display = 'block';
-} else {
-    document.getElementById('existing').style.display = 'none';
+const usernameInput=document.getElementById('username');
+const passwordInput=document.getElementById('password');
+const checkboxInput=document.getElementById('checkbox');
+const submitButton=document.getElementById('submit');
+const existingButton=document.getElementById('existing');
+ 
+function checkIfUserExistsInLocalStorage() {
+	if(localStorage.getItem('user')){
+		existingButton.style.display='block'
+	}else{
+		existingButton.style.display='none'
+	}
 }
-
-document.getElementById('existing').addEventListener('click',()=>{
-    alert("Logged in as " + localStorage.getItem('username'));
-});
+ 
+checkIfUserExistsInLocalStorage()
+ 
+function saveUserInLocalStorage() {
+	const user={
+		username:usernameInput.value,
+		password:passwordInput.value,
+	}
+ 
+	localStorage.setItem('user',JSON.stringify(user))
+}
+ 
+function removeUserFromLocalStorage() {
+	localStorage.removeItem('user')
+}
+ 
+existingButton.addEventListener('click',(e)=>{
+	e.preventDefault();
+	alert('Logged in as username')
+})
+ 
+submitButton.addEventListener('click',(e)=>{
+	e.preventDefault();
+ 
+	if(!checkboxInput.checked){
+		removeUserFromLocalStorage()
+		// remove existing button
+		checkIfUserExistsInLocalStorage()
+ 
+	}else{
+		saveUserInLocalStorage()
+		// show existing button
+		checkIfUserExistsInLocalStorage()
+	}
+	alert('Logged in as username')
+})

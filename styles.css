@@ -1,16 +1,22 @@
-/*  your css code here. If applicable */
-  h1{
-            text-align: center;
-        }
-        form{
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        input,label{
-            margin: auto;
-            width: 40%;
-            padding: 10px;
-            font-size: 18px;
+/*  your css code here. If applicable */ 
+.form{
 
-        }
+	display:flex;
+
+	flex-direction:column;
+
+	gap:1em;
+
+	align-items:flex-start;
+
+}
+
+.input-container{
+
+	display:flex;
+
+	align-items:center;
+
+	gap:0.5em;
+
+}
