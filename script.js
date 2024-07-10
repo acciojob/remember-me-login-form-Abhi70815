@@ -14,6 +14,12 @@ localStorage.setItem("password",password.value);
     }
 })
 
+if (localStorage.getItem('username') && localStorage.getItem('password')) {
+    document.getElementById('existing').style.display = 'block';
+} else {
+    document.getElementById('existing').style.display = 'none';
+}
+
 document.getElementById('existing').addEventListener('click',()=>{
 if(username.value==localStorage.getItem('username') && password.value==localStorage.getItem('password')){
 	alert("Logged in as "+localStorage.getItem('username'));
