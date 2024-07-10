@@ -1,1 +1,16 @@
 /*  your css code here. If applicable */
+  h1{
+            text-align: center;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        input,label{
+            margin: auto;
+            width: 40%;
+            padding: 10px;
+            font-size: 18px;
+
+        }
