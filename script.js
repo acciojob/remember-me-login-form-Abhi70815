@@ -15,7 +15,7 @@ localStorage.setItem("password",password.value);
 })
 
 document.getElementById('existing').addEventListener('click',()=>{
-if(username==localStorage.getItem('username') && password==localStorage.getItem('password')){
+if(username.value==localStorage.getItem('username') && password.value==localStorage.getItem('password')){
 	alert("Logged in as "+localStorage.getItem('username'));
 
 }
